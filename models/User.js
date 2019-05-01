@@ -8,3 +8,7 @@ const userSchema = new Schema({
     lastName: { type: String, required: true },
     password: { type: String, required: true },
 });
+
+const User = mongoose.model("Blog", userSchema);
+
+module.exports = User;
