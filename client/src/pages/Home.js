@@ -53,24 +53,24 @@ class Home extends Component {
                             <div className="col-xs-12 col-md-6"> <img src="img/about.jpg" className="img-responsive thumbnail" alt /> </div>
                             <div className="col-xs-12 col-md-6">
                                 <div className="about-text">
-                                    <h3>The Xenocritis Organization</h3>
-                                    <p>The Xenocritis Organization is designed to explore science with a fresh new perspective without the hassle of needing to know complex concepts and ideas from the get go.</p>
-                                    <p>Xenocritis is designed to take you in a universe of exploration in order to discover new concepts:</p>
+                                    <h3>What is Blogmania?</h3>
+                                    <p>Blogmania is an open platform application utilizing React, allowing users to create their own custom content without a hassle no matter what they're into.</p>
+                                    <p>Here are some of the technologies we have to offer that are implemented into your sites:</p>
                                     <div className="list-style">
                                         <div className="col-lg-6 col-sm-6 col-xs-12">
                                             <ul>
-                                                <li>Simulated Universe</li>
-                                                <li>New Mathematics</li>
-                                                <li>Quantum Physics</li>
-                                                <li>Physics</li>
+                                                <li>React Core</li>
+                                                <li>Passport Security</li>
+                                                <li>UglifyJS2 Code Efficiency</li>
+                                                <li>Full User Customization</li>
                                             </ul>
                                         </div>
                                         <div className="col-lg-6 col-sm-6 col-xs-12">
                                             <ul>
-                                                <li>Language</li>
-                                                <li>Communication</li>
-                                                <li>Technology</li>
-                                                <li>Learning</li>
+                                                <li>Node.js</li>
+                                                <li>JQuery</li>
+                                                <li>Bootstrap</li>
+                                                <li>MongoDB</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -85,24 +85,24 @@ class Home extends Component {
                         <div className="col-md-10 col-md-offset-1 section-title">
                             <h2 className="h2-secondary">Join a Cause</h2>
                             <hr />
-                            <p className="p-secondary">Join and innovate a new world from the comforts of your home.</p>
+                            <p className="p-secondary">Join and innovate hungry minds from home!</p>
                         </div>
                         <div className="row">
                             <div className="col-xs-6 col-md-3"> <i className="fa fa-home" />
                                 <h4>Home</h4>
-                                <p className="p-secondary">Joining the Xenocritis Organization is simple and easy. Discover and enjoy the comfort of home.</p>
+                                <p className="p-secondary">Joining Blogmania is as easy as signing up. What are you waiting for!</p>
                             </div>
                             <div className="col-xs-6 col-md-3"> <i className="fa fa-umbrella" />
                                 <h4>Protection</h4>
-                                <p className="p-secondary">Everything you discover is unique to you. Take credit for your discoveries and innovations!</p>
+                                <p className="p-secondary">Keep pesky theives away and take advantage of your precious work.</p>
                             </div>
                             <div className="col-xs-6 col-md-3"> <i className="fa fa-gears" />
                                 <h4>Collaborate</h4>
-                                <p className="p-secondary">By working with team members, your discoveries come together to take on a new light for innovation.</p>
+                                <p className="p-secondary">Take advantage of connecting to other writers and enjoy a fresh perspective.</p>
                             </div>
                             <div className="col-xs-6 col-md-3"> <i className="fa fa-language" />
                                 <h4>Communication</h4>
-                                <p className="p-secondary">Take on the challenge of understanding the world from a different perspective!</p>
+                                <p className="p-secondary">Connect with people around the globe!</p>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ class Home extends Component {
                         <div className="section-title center">
                             <h2>Pricing</h2>
                             <hr />
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
+                            <p>Want to take your site a step farther? Take advantage of our packages!</p>
                         </div>
                         <div className="row">
                             <div className="col-md-4 col-sm-4">
