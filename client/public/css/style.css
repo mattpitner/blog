@@ -131,7 +131,7 @@ hr {
 	transition: all 0.3s;
 }
 .btn-custom:hover, .btn-custom:focus, .btn-custom.focus, .btn-custom:active, .btn-custom.active {
-	color: #fff;
+	color: #363636;
 	background-color: #E5E5E5;
 }
 /* Header Section */
@@ -255,8 +255,8 @@ header .intro-text {
 	border-radius: 0 0 4px 4px;
 }
 #pricing .pricing-table.highlight-plan .plan-signup .btn-system.border-btn {
-	border-color: #fff;
-	color: #fff;
+	border-color: #E5E5E5;
+	color: #E5E5E5;
 }
 .pricing-table .plan-name {
 	padding: 15px 0;
@@ -304,7 +304,7 @@ header .intro-text {
 	text-transform: uppercase;
 }
 .pricing-table .btn-system:hover, .pricing-table .btn-system.border-btn:hover {
-	background-color: #E5E5E5;
+	background-color: #363636;
 }
 .pricing-table .btn-system:last-child {
 	margin-right: 0;
