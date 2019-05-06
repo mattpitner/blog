@@ -1,10 +1,54 @@
 import React, { Component } from "react";
 import App from "../App";
+import API from "../utils/API";
 
 class Home extends Component {
     state = {
-        value: 0
+        blogs: [],
+        title: "",
+        author: "",
+        blogBody: ""
     }
+
+
+
+    componentDidMount() {
+        this.loadBlogs();
+    }
+
+    loadBlogs = () => {
+        API.getBlogs()
+            .then(res =>
+                this.setState({ books: res.data, title: "", author: "", blogBody: "" })
+            )
+            .catch(err => console.log(err));
+    };
+
+    deleteBlog = id => {
+        API.deleteBlog(id)
+            .then(res => this.loadBlogs())
+            .catch(err => console.log(err));
+    };
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        if (this.state.title && this.state.author) {
+            API.saveBlog({
+                title: this.state.title,
+                author: this.state.author,
+                blogBody: this.state.blogBody
+            })
+                .then(res => this.loadBlogs())
+                .catch(err => console.log(err));
+        }
+    };
 
     render() {
         return (
@@ -19,8 +63,8 @@ class Home extends Component {
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav navbar-right">
                                 <li><a href="#about" className="page-scroll">About</a></li>
-                                <li><a href="#services" className="page-scroll">Register</a></li>
-                                <li><a href="#pricing" className="page-scroll">Pricing</a></li>
+                                <li><a href="#register" className="page-scroll">Register</a></li>
+                                <li><a href="#pricing" className="page-scroll">New Post</a></li>
                                 <li><a href="#contact" className="page-scroll">Contact</a></li>
 
                             </ul>
@@ -85,7 +129,7 @@ class Home extends Component {
                 </div>
                 {/* Register Section */}
 
-                <div id="register" className="text-center">
+                <div id="register" className="text-center page-scroll">
                     <div className="container">
                         <div className="section-title center">
                             <h2 className="h2-secondary">Register Here</h2>
@@ -110,96 +154,58 @@ class Home extends Component {
                                 </div>
 
                                 <div className="col-md-6">
-                                <div className="form-group">
-                                            <input type="password" id="password" className="form-control" placeholder="Password" required="required" />
-                                            
-                                            <p className="help-block text-danger" />
-                                        </div>
+                                    <div className="form-group">
+                                        <input type="password" id="password" className="form-control" placeholder="Password" required="required" />
+
+                                        <p className="help-block text-danger" />
+                                    </div>
                                 </div>
                                 <div className="col-md-6">
-                                <div className="form-group">
-                                            <input type="password" id="password" className="form-control" placeholder="Re-Enter Password" required="required" />
-                                            
-                                            <p className="help-block text-danger" />
-                                        </div>
+                                    <div className="form-group">
+                                        <input type="password" id="password" className="form-control" placeholder="Re-Enter Password" required="required" />
+
+                                        <p className="help-block text-danger" />
+                                    </div>
                                 </div>
                                 <div id="register-button" />
-                                <button  type="submit" className="btn btn-custom btn-lg col-lg-12">Register</button>
+                                <button type="submit" className="btn btn-custom btn-lg col-lg-12">Register</button>
                             </form>
 
                         </div>
                     </div>
                 </div>
 
+                /*New Blog Post Section*/
+
                 <div id="pricing" className="text-center">
                     <div className="container">
                         <div className="section-title center">
-                            <h2>Pricing</h2>
+                            <h2>New Post</h2>
                             <hr />
-                            <p>Want to take your site a step farther? Take advantage of our packages!</p>
+                            <p>Create a new blog post here!</p>
                         </div>
-                        <div className="row">
-                            <div className="col-md-4 col-sm-4">
-                                <div className="pricing-table">
-                                    <div className="plan-name">
-                                        <h3>Basic</h3>
+                        <form name="sentMessage" id="contactForm" noValidate>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <input type="text" id="name" className="form-control" placeholder="Title" required="required" />
+                                        <p className="help-block text-danger" />
                                     </div>
-                                    <div className="plan-price">
-                                        <div className="price-value">$10</div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <input type="email" id="email" className="form-control" placeholder="Email" required="required" />
+                                        <p className="help-block text-danger" />
                                     </div>
-                                    <div className="plan-list">
-                                        <ul>
-                                            <li><strong>1 GB</strong> Disk Space</li>
-                                            <li><strong>1GB</strong> Monthly Bandwidth</li>
-                                            <li><strong>3</strong> Domains</li>
-                                            <li><strong>3</strong> Email Accounts</li>
-                                            <li><strong>Free</strong> Setup</li>
-                                        </ul>
-                                    </div>
-                                    <div className="plan-signup"> <a href="#" className="btn-system">Order Now</a> </div>
                                 </div>
                             </div>
-                            <div className="col-md-4 col-sm-4">
-                                <div className="pricing-table highlight-plan">
-                                    <div className="plan-name">
-                                        <h3>Standard</h3>
-                                    </div>
-                                    <div className="plan-price">
-                                        <div className="price-value">$20</div>
-                                    </div>
-                                    <div className="plan-list">
-                                        <ul>
-                                            <li><strong>10 GB</strong> Disk Space</li>
-                                            <li><strong>10GB</strong> Monthly Bandwidth</li>
-                                            <li><strong>10</strong> Domains</li>
-                                            <li><strong>10</strong> Email Accounts</li>
-                                            <li><strong>Free</strong> Setup</li>
-                                        </ul>
-                                    </div>
-                                    <div className="plan-signup"> <a href="#" className="btn-system border-btn">Order Now</a> </div>
-                                </div>
+                            <div className="form-group">
+                                <textarea name="message" id="message" className="form-control" rows={15} placeholder="Blog post goes here" required defaultValue={""} />
+                                <p className="help-block text-danger" />
                             </div>
-                            <div className="col-md-4 col-sm-4">
-                                <div className="pricing-table">
-                                    <div className="plan-name">
-                                        <h3>Professional</h3>
-                                    </div>
-                                    <div className="plan-price">
-                                        <div className="price-value">$30</div>
-                                    </div>
-                                    <div className="plan-list">
-                                        <ul>
-                                            <li><strong>20 GB</strong> Disk Space</li>
-                                            <li><strong>20GB</strong> Monthly Bandwidth</li>
-                                            <li><strong>20</strong> Domains</li>
-                                            <li><strong>20</strong> Email Accounts</li>
-                                            <li><strong>Free</strong> Setup</li>
-                                        </ul>
-                                    </div>
-                                    <div className="plan-signup"> <a href="#" className="btn-system">Order Now</a> </div>
-                                </div>
-                            </div>
-                        </div>
+                            <div id="success" />
+                            <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!</button>
+                        </form>
                     </div>
                 </div>
                 {/* Contact Section */}
