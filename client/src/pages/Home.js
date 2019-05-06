@@ -194,7 +194,7 @@ class Home extends Component {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group">
-                                        <input type="email" id="email" className="form-control" placeholder="Email" required="required" />
+                                        <input type="email" id="email" className="form-control" placeholder="Author" required="required" />
                                         <p className="help-block text-danger" />
                                     </div>
                                 </div>
