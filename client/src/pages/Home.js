@@ -13,7 +13,7 @@ class Home extends Component {
                         {/* Brand and toggle get grouped for better mobile display */}
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span className="sr-only">Toggle navigation</span> <span className="icon-bar" /> <span className="icon-bar" /> <span className="icon-bar" /> </button>
-                            <a className="navbar-brand page-scroll" href="#page-top"><i className="fa fa-book" /> Blogmania</a> </div>
+                            <a className="navbar-brand page-scsroll" href="#header"><i className="fa fa-book" /> Blogmania</a> </div>
                         {/* Collect the nav links, forms, and other content for toggling */}
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav navbar-right">
