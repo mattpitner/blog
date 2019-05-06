@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import App from "../App";
 
 class Home extends Component {
     state = {
@@ -18,10 +19,13 @@ class Home extends Component {
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav navbar-right">
                                 <li><a href="#about" className="page-scroll">About</a></li>
-                                <li><a href="#services" className="page-scroll">Join</a></li>
+                                <li><a href="#services" className="page-scroll">Register</a></li>
                                 <li><a href="#pricing" className="page-scroll">Pricing</a></li>
                                 <li><a href="#contact" className="page-scroll">Contact</a></li>
+
                             </ul>
+
+
                         </div>
                         {/* /.navbar-collapse */}
                     </div>
@@ -79,35 +83,54 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                {/* Services Section */}
-                <div id="services" className="text-center">
+                {/* Register Section */}
+
+                <div id="register" className="text-center">
                     <div className="container">
-                        <div className="col-md-10 col-md-offset-1 section-title">
-                            <h2 className="h2-secondary">Join a Cause</h2>
+                        <div className="section-title center">
+                            <h2 className="h2-secondary">Register Here</h2>
                             <hr />
-                            <p className="p-secondary">Join and innovate hungry minds from home!</p>
+                            <p className="p-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
                         </div>
-                        <div className="row">
-                            <div className="col-xs-6 col-md-3"> <i className="fa fa-home" />
-                                <h4>Home</h4>
-                                <p className="p-secondary">Joining Blogmania is as easy as signing up. What are you waiting for!</p>
-                            </div>
-                            <div className="col-xs-6 col-md-3"> <i className="fa fa-umbrella" />
-                                <h4>Protection</h4>
-                                <p className="p-secondary">Keep pesky theives away and take advantage of your precious work.</p>
-                            </div>
-                            <div className="col-xs-6 col-md-3"> <i className="fa fa-gears" />
-                                <h4>Collaborate</h4>
-                                <p className="p-secondary">Take advantage of connecting to other writers and enjoy a fresh perspective.</p>
-                            </div>
-                            <div className="col-xs-6 col-md-3"> <i className="fa fa-language" />
-                                <h4>Communication</h4>
-                                <p className="p-secondary">Connect with people around the globe!</p>
-                            </div>
+                        <div className="col-md-8 col-md-offset-2">
+                            <form name="sentMessage" id="contactForm" noValidate>
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <div className="form-group">
+                                            <input type="text" id="name" className="form-control" placeholder="Name" required="required" />
+                                            <p className="help-block text-danger" />
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="form-group">
+                                            <input type="email" id="email" className="form-control" placeholder="Email" required="required" />
+                                            <p className="help-block text-danger" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-6">
+                                <div className="form-group">
+                                            <input type="password" id="password" className="form-control" placeholder="Password" required="required" />
+                                            
+                                            <p className="help-block text-danger" />
+                                        </div>
+                                </div>
+                                <div className="col-md-6">
+                                <div className="form-group">
+                                            <input type="password" id="password" className="form-control" placeholder="Re-Enter Password" required="required" />
+                                            
+                                            <p className="help-block text-danger" />
+                                        </div>
+                                </div>
+                                <div id="register-button" />
+                                <button  type="submit" className="btn btn-custom btn-lg col-lg-12">Register</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
-                {/* Pricing Section */}
+
                 <div id="pricing" className="text-center">
                     <div className="container">
                         <div className="section-title center">
@@ -210,6 +233,10 @@ class Home extends Component {
                                 <div id="success" />
                                 <button type="submit" className="btn btn-custom btn-lg">Send Message</button>
                             </form>
+
+
+
+
                             <div className="social">
                                 <ul>
                                     <li><a href="#"><i className="fa fa-facebook" /></a></li>
