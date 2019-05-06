@@ -19,7 +19,7 @@ class Home extends Component {
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav navbar-right">
                                 <li><a href="#about" className="page-scroll">About</a></li>
-                                <li><a href="#services" className="page-scroll">Register</a></li>
+                                <li><a href="#register" className="page-scroll">Register</a></li>
                                 <li><a href="#pricing" className="page-scroll">Pricing</a></li>
                                 <li><a href="#contact" className="page-scroll">Contact</a></li>
 
@@ -85,7 +85,7 @@ class Home extends Component {
                 </div>
                 {/* Register Section */}
 
-                <div id="register" className="text-center">
+                <div id="register" className="text-center page-scroll">
                     <div className="container">
                         <div className="section-title center">
                             <h2 className="h2-secondary">Register Here</h2>
