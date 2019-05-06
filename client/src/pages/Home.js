@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import App from "../App";
 import API from "../utils/API";
+import { List, ListItem } from "../components/List";
+import { Link } from "react-router-dom";
+import DeleteBtn from "../components/DeleteBtn";
 
 class Home extends Component {
     state = {
@@ -8,13 +11,11 @@ class Home extends Component {
         title: "",
         author: "",
         blogBody: ""
-    }
-
-
+    };
 
     componentDidMount() {
         this.loadBlogs();
-    }
+    };
 
     loadBlogs = () => {
         API.getBlogs()
@@ -58,7 +59,7 @@ class Home extends Component {
                         {/* Brand and toggle get grouped for better mobile display */}
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span className="sr-only">Toggle navigation</span> <span className="icon-bar" /> <span className="icon-bar" /> <span className="icon-bar" /> </button>
-                            <a className="navbar-brand page-scroll" href="#page-top"><i className="fa fa-book" /> Blogmania</a> </div>
+                            <a className="navbar-brand page-scsroll" href="#header"><i className="fa fa-blog" /> Blogmania</a> </div>
                         {/* Collect the nav links, forms, and other content for toggling */}
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav navbar-right">
@@ -175,8 +176,6 @@ class Home extends Component {
                     </div>
                 </div>
 
-                /*New Blog Post Section*/
-
                 <div id="pricing" className="text-center">
                     <div className="container">
                         <div className="section-title center">
@@ -184,28 +183,48 @@ class Home extends Component {
                             <hr />
                             <p>Create a new blog post here!</p>
                         </div>
-                        <form name="sentMessage" id="contactForm" noValidate>
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <div className="form-group">
-                                        <input type="text" id="name" className="form-control" placeholder="Title" required="required" />
-                                        <p className="help-block text-danger" />
+                        <div className="container">
+                            <List>
+                                {this.state.blogs.map(blog => (
+                                    <ListItem key={blog._id}>
+                                        <Link to={"/blogs/" + blog._id}>
+                                            <strong>
+                                                {blog.title} by {blog.author}
+                                            </strong>
+                                        </Link>
+                                        <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </div>
+                        <div className="container">
+                            <form name="sentMessage" id="contactForm" noValidate>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="form-group">
+                                            <input type="text" id="name" className="form-control" placeholder="Title" required="required" />
+                                            <p className="help-block text-danger" />
+                                        </div>
+                                    </div>
+                                    <div className="col-md-12">
+                                        <div className="form-group">
+                                            <input type="email" id="email" className="form-control" placeholder="Author" required="required" />
+                                            <p className="help-block text-danger" />
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="col-md-6">
+                                <div className="col-md-12">
                                     <div className="form-group">
-                                        <input type="email" id="email" className="form-control" placeholder="Author" required="required" />
+                                        <textarea name="message" id="message" className="form-control" rows={6} placeholder="Blog post goes here" required defaultValue={""} />
                                         <p className="help-block text-danger" />
                                     </div>
+                                    <div className="col-md-12">
+                                        <div id="success" />
+                                        <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="form-group">
-                                <textarea name="message" id="message" className="form-control" rows={15} placeholder="Blog post goes here" required defaultValue={""} />
-                                <p className="help-block text-danger" />
-                            </div>
-                            <div id="success" />
-                            <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!</button>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 {/* Contact Section */}
