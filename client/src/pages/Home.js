@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import App from "../App";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import { Link } from "react-router-dom";
@@ -59,7 +58,7 @@ class Home extends Component {
                         {/* Brand and toggle get grouped for better mobile display */}
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span className="sr-only">Toggle navigation</span> <span className="icon-bar" /> <span className="icon-bar" /> <span className="icon-bar" /> </button>
-                            <a className="navbar-brand page-scsroll" href="#header"><i className="fa fa-blog" /> Blogmania</a> </div>
+                            <a className="navbar-brand page-scroll" href="#header"><i className="fa fa-book" /> Blogmania</a> </div>
                         {/* Collect the nav links, forms, and other content for toggling */}
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav navbar-right">
@@ -99,7 +98,7 @@ class Home extends Component {
                             <hr />
                         </div>
                         <div className="row">
-                            <div className="col-xs-12 col-md-6"> <img src="img/about.jpg" className="img-responsive thumbnail" alt /> </div>
+                            <div className="col-xs-12 col-md-6"> <img src="img/about.jpg" className="img-responsive thumbnail" alt="" /> </div>
                             <div className="col-xs-12 col-md-6">
                                 <div className="about-text">
                                     <h3>What is Blogmania?</h3>
