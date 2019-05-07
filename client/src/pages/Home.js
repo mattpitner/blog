@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import DeleteBtn from "../components/DeleteBtn";
 
 class Home extends Component {
@@ -19,7 +19,7 @@ class Home extends Component {
     loadBlogs = () => {
         API.getBlogs()
             .then(res =>
-                this.setState({ books: res.data, title: "", author: "", post: "" })
+                this.setState({ blogs: res.data, title: "", author: "", post: "" })
             )
             .catch(err => console.log(err));
     };
@@ -189,11 +189,11 @@ class Home extends Component {
                                         <List>
                                             {this.state.blogs.map(blog => (
                                                 <ListItem key={blog._id}>
-                                                    <Link to={"/blogs/" + blog._id}>
+                                                    {/* <Link to={"/blogs/" + blog._id}> */}
                                                         <strong>
                                                             {blog.title} by {blog.author}
                                                         </strong>
-                                                    </Link>
+                                                    {/* </Link> */}
                                                     <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
                                                 </ListItem>
                                             ))}
