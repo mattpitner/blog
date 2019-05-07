@@ -184,18 +184,26 @@ class Home extends Component {
                             <p>Create a new blog post here!</p>
                         </div>
                         <div className="container">
-                            <List>
-                                {this.state.blogs.map(blog => (
-                                    <ListItem key={blog._id}>
-                                        <Link to={"/blogs/" + blog._id}>
-                                            <strong>
-                                                {blog.title} by {blog.author}
-                                            </strong>
-                                        </Link>
-                                        <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
-                                    </ListItem>
-                                ))}
-                            </List>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    {this.state.blogs.length ? (
+                                        <List>
+                                            {this.state.blogs.map(blog => (
+                                                <ListItem key={blog._id}>
+                                                    <Link to={"/blogs/" + blog._id}>
+                                                        <strong>
+                                                            {blog.title} by {blog.author}
+                                                        </strong>
+                                                    </Link>
+                                                    <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
+                                                </ListItem>
+                                            ))}
+                                        </List>
+                                    ) : (
+                                            <h3>No Blog Posts</h3>
+                                        )}
+                                </div>
+                            </div>
                         </div>
                         <div className="container">
                             <form name="sentMessage" id="contactForm" noValidate>
