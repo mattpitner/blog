@@ -183,6 +183,7 @@ class Home extends Component {
                             <hr />
                             <p>Create a new blog post here!</p>
                         </div>
+
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-12">
@@ -205,6 +206,7 @@ class Home extends Component {
                                 </div>
                             </div>
                         </div>
+                        
                         <div className="container">
                             <form name="sentMessage" id="contactForm" noValidate>
                                 <div className="row">
