@@ -3,7 +3,7 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/blogposts"
+  "mongodb://localhost/blogposts", { useNewUrlParser: true }
 );
 
 const blogSeed = [

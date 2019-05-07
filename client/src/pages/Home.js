@@ -9,7 +9,7 @@ class Home extends Component {
         blogs: [],
         title: "",
         author: "",
-        blogBody: ""
+        post: ""
     };
 
     componentDidMount() {
@@ -19,7 +19,7 @@ class Home extends Component {
     loadBlogs = () => {
         API.getBlogs()
             .then(res =>
-                this.setState({ books: res.data, title: "", author: "", blogBody: "" })
+                this.setState({ books: res.data, title: "", author: "", post: "" })
             )
             .catch(err => console.log(err));
     };
@@ -43,7 +43,7 @@ class Home extends Component {
             API.saveBlog({
                 title: this.state.title,
                 author: this.state.author,
-                blogBody: this.state.blogBody
+                post: this.state.post
             })
                 .then(res => this.loadBlogs())
                 .catch(err => console.log(err));
