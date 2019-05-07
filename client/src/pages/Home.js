@@ -188,19 +188,19 @@ class Home extends Component {
                             <div className="row">
                                 <div className="col-md-6">
                                     <div className="form-group">
-                                        <input type="text" id="name" className="form-control" placeholder="Title" required="required" />
+                                        <input type="text" id="title" className="form-control" placeholder="Title" required="required" />
                                         <p className="help-block text-danger" />
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group">
-                                        <input type="email" id="email" className="form-control" placeholder="Author" required="required" />
+                                        <input type="text" id="author" className="form-control" placeholder="Author" required="required" />
                                         <p className="help-block text-danger" />
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <textarea name="message" id="message" className="form-control" rows={15} placeholder="Blog post goes here" required defaultValue={""} />
+                                <textarea name="message" id="blogBody" className="form-control" rows={15} placeholder="Blog post goes here" required defaultValue={""} />
                                 <p className="help-block text-danger" />
                             </div>
                             <div id="success" />
