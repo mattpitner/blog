@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DeleteBtn from "../components/DeleteBtn";
+import { FormBtn } from "../components/Form";
 
 class Home extends Component {
     state = {
@@ -128,7 +129,6 @@ class Home extends Component {
                     </div>
                 </div>
                 {/* Register Section */}
-
                 <div id="register" className="text-center page-scroll">
                     <div className="container">
                         <div className="section-title center">
@@ -152,29 +152,24 @@ class Home extends Component {
                                         </div>
                                     </div>
                                 </div>
-
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <input type="password" id="password" className="form-control" placeholder="Password" required="required" />
-
                                         <p className="help-block text-danger" />
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <input type="password" id="password" className="form-control" placeholder="Re-Enter Password" required="required" />
-
                                         <p className="help-block text-danger" />
                                     </div>
                                 </div>
                                 <div id="register-button" />
                                 <button type="submit" className="btn btn-custom btn-lg col-lg-12">Register</button>
                             </form>
-
                         </div>
                     </div>
                 </div>
-
                 <div id="pricing" className="text-center">
                     <div className="container">
                         <div className="section-title center">
@@ -189,13 +184,14 @@ class Home extends Component {
                                         <List>
                                             {this.state.blogs.map(blog => (
                                                 <ListItem key={blog._id}>
-                                                    {/* <Link to={"/blogs/" + blog._id}> */}
+                                                    <Link to={"/blogs/" + blog._id}>
                                                         <strong>
                                                             {blog.title} by {blog.author}
                                                         </strong>
-                                                    {/* </Link> */}
+                                                    </Link>
                                                     <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
                                                 </ListItem>
+
                                             ))}
                                         </List>
                                     ) : (
@@ -209,25 +205,26 @@ class Home extends Component {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="form-group">
-                                            <input type="text" id="name" className="form-control" placeholder="Title" required="required" />
+                                            <input value={this.state.title} onChange={this.handleInputChange} name="title" type="text" id="name" className="form-control" placeholder="Title" required="required" />
                                             <p className="help-block text-danger" />
                                         </div>
                                     </div>
                                     <div className="col-md-12">
                                         <div className="form-group">
-                                            <input type="email" id="email" className="form-control" placeholder="Author" required="required" />
+                                            <input value={this.state.author} onChange={this.handleInputChange} name="author" type="text" id="name" className="form-control" placeholder="Author" required="required" />
                                             <p className="help-block text-danger" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-md-12">
                                     <div className="form-group">
-                                        <textarea name="message" id="message" className="form-control" rows={6} placeholder="Blog post goes here" required defaultValue={""} />
+                                        <textarea value={this.state.post} onChange={this.handleInputChange} name="post" id="message" className="form-control" rows={6} placeholder="Blog post goes here" required defaultValue={""} />
                                         <p className="help-block text-danger" />
                                     </div>
                                     <div className="col-md-12">
                                         <div id="success" />
-                                        <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!</button>
+                                        <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -265,10 +262,6 @@ class Home extends Component {
                                 <div id="success" />
                                 <button type="submit" className="btn btn-custom btn-lg">Send Message</button>
                             </form>
-
-
-
-
                             <div className="social">
                                 <ul>
                                     <li><a href="#"><i className="fa fa-facebook" /></a></li>
@@ -283,7 +276,7 @@ class Home extends Component {
                 <div id="footer">
                     <div className="container text-center">
                         <div className="fnav">
-                            <p>Copyright © 2019 Designed by Chandler Paulk</p>
+                            <p>Copyright © 2019 Designed by Chandler Paulk and Matt Pitner</p>
                         </div>
                     </div>
                 </div>
@@ -291,5 +284,4 @@ class Home extends Component {
         )
     }
 }
-
 export default Home;
