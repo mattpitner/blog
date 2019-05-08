@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
-// import { Link } from "react-router-dom";
+ import { Link } from "react-router-dom";
 import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
-import { Col, Row, Container } from "../components/Grid";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { FormBtn } from "../components/Form";
 
 class Home extends Component {
     state = {
@@ -131,7 +129,6 @@ class Home extends Component {
                     </div>
                 </div>
                 {/* Register Section */}
-
                 <div id="register" className="text-center page-scroll">
                     <div className="container">
                         <div className="section-title center">
@@ -155,37 +152,29 @@ class Home extends Component {
                                         </div>
                                     </div>
                                 </div>
-
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <input type="password" id="password" className="form-control" placeholder="Password" required="required" />
-
                                         <p className="help-block text-danger" />
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group">
                                         <input type="password" id="password" className="form-control" placeholder="Re-Enter Password" required="required" />
-
                                         <p className="help-block text-danger" />
                                     </div>
                                 </div>
                                 <div id="register-button" />
                                 <button type="submit" className="btn btn-custom btn-lg col-lg-12">Register</button>
                             </form>
-
                         </div>
                     </div>
                 </div>
-
-                <div id="about">
+                <div id="pricing" className="text-center">
                     <div className="container">
-                        <div className="section-title text-center center">
-                            <h2>Blogs</h2>
-
+                        <div className="section-title center">
+                            <h2>New Post</h2>
                             <hr />
-<<<<<<< HEAD
-=======
                             <p>Create a new blog post here!</p>
                         </div>
                         <div className="container">
@@ -202,6 +191,7 @@ class Home extends Component {
                                                     {/* </Link> */}
                                                     <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
                                                 </ListItem>
+                                                
                                             ))}
                                         </List>
                                     ) : (
@@ -211,155 +201,87 @@ class Home extends Component {
                             </div>
                         </div>
                         <div className="container">
-                            <form name="sentMessage" id="contactForm" noValidate>
+                            <form name="sentMessage"  id="contactForm" noValidate>
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="form-group">
-                                            <input type="text" id="name" className="form-control" placeholder="Title" required="required" />
+                                            <input value={this.state.title} onChange={this.handleInputChange} name="title" type="text" id="name" className="form-control" placeholder="Title" required="required" />
                                             <p className="help-block text-danger" />
                                         </div>
                                     </div>
                                     <div className="col-md-12">
                                         <div className="form-group">
-                                            <input type="email" id="email" className="form-control" placeholder="Author" required="required" />
+                                            <input value={this.state.author} onChange={this.handleInputChange} name="author" type="text" id="name" className="form-control" placeholder="Author" required="required" />
                                             <p className="help-block text-danger" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-md-12">
                                     <div className="form-group">
-                                        <textarea name="message" id="message" className="form-control" rows={6} placeholder="Blog post goes here" required defaultValue={""} />
+                                        <textarea value={this.state.post} onChange={this.handleInputChange} name="post" id="message" className="form-control" rows={6} placeholder="Blog post goes here" required defaultValue={""} />
                                         <p className="help-block text-danger" />
                                     </div>
                                     <div className="col-md-12">
                                         <div id="success" />
-                                        <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!</button>
+                                        <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!
+                                        </button> 
                                     </div>
                                 </div>
                             </form>
->>>>>>> a8e5042454ca95eec1afb30feed9c183bd1bf92a
                         </div>
-                        
-                        {this.state.blogs.length ? (
-              <List>
-                {this.state.blogs.map(book => (
-                  <ListItem key={blog._id}>
-                    <Link to={"/blogs/" + blog._id}>
-                      <strong>
-                        {blog.title} by {blog.author}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-
-
                     </div>
                 </div>
-
-               
-                      
-                      
-                      
-                <div id="pricing" className="text-center">
-                                    <div className="container">
-                                        <div className="section-title center">
-                                            <h2>New Post</h2>
-                                            <hr />
-                                            <p>Create a new blog post here!</p>
+                {/* Contact Section */}
+                <div id="contact" className="text-center">
+                    <div className="container">
+                        <div className="section-title center">
+                            <h2 className="h2-secondary">Contact Us</h2>
+                            <hr />
+                            <p className="p-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
+                        </div>
+                        <div className="col-md-8 col-md-offset-2">
+                            <form name="sentMessage" id="contactForm" noValidate>
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <div className="form-group">
+                                            <input type="text" id="name" className="form-control" placeholder="Name" required="required" />
+                                            <p className="help-block text-danger" />
                                         </div>
-
-
-                                        <div className="container">
-                                            <form name="sentMessage" id="contactForm" noValidate>
-                                                <div className="row">
-                                                    <div className="col-md-12">
-                                                        <div className="form-group">
-                                                            <input type="text" id="name" className="form-control" placeholder="Title" required="required" />
-                                                            <p className="help-block text-danger" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-12">
-                                                        <div className="form-group">
-                                                            <input type="email" id="email" className="form-control" placeholder="Author" required="required" />
-                                                            <p className="help-block text-danger" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <div className="form-group">
-                                                        <textarea name="message" id="message" className="form-control" rows={6} placeholder="Blog post goes here" required defaultValue={""} />
-                                                        <p className="help-block text-danger" />
-                                                    </div>
-                                                    <div className="col-md-12">
-                                                        <div id="success" />
-                                                        <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!</button>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="form-group">
+                                            <input type="email" id="email" className="form-control" placeholder="Email" required="required" />
+                                            <p className="help-block text-danger" />
                                         </div>
                                     </div>
                                 </div>
-
-                                <div id="contact" className="text-center">
-                                    <div className="container">
-                                        <div className="section-title center">
-                                            <h2 className="h2-secondary">Contact Us</h2>
-                                            <hr />
-                                            <p className="p-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
-                                        </div>
-                                        <div className="col-md-8 col-md-offset-2">
-                                            <form name="sentMessage" id="contactForm" noValidate>
-                                                <div className="row">
-                                                    <div className="col-md-6">
-                                                        <div className="form-group">
-                                                            <input type="text" id="name" className="form-control" placeholder="Name" required="required" />
-                                                            <p className="help-block text-danger" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-6">
-                                                        <div className="form-group">
-                                                            <input type="email" id="email" className="form-control" placeholder="Email" required="required" />
-                                                            <p className="help-block text-danger" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="form-group">
-                                                    <textarea name="message" id="message" className="form-control" rows={4} placeholder="Message" required defaultValue={""} />
-                                                    <p className="help-block text-danger" />
-                                                </div>
-                                                <div id="success" />
-                                                <button type="submit" className="btn btn-custom btn-lg">Send Message</button>
-                                            </form>
-
-
-
-
-                                            <div className="social">
-                                                <ul>
-                                                    <li><a href="#"><i className="fa fa-facebook" /></a></li>
-                                                    <li><a href="#"><i className="fa fa-twitter" /></a></li>
-                                                    <li><a href="#"><i className="fa fa-google-plus" /></a></li>
-                                                    <li><a href="#"><i className="fa fa-youtube" /></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div className="form-group">
+                                    <textarea name="message" id="message" className="form-control" rows={4} placeholder="Message" required defaultValue={""} />
+                                    <p className="help-block text-danger" />
                                 </div>
-                                <div id="footer">
-                                    <div className="container text-center">
-                                        <div className="fnav">
-                                            <p>Copyright © 2019 Designed by Chandler Paulk</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div id="success" />
+                                <button type="submit" className="btn btn-custom btn-lg">Send Message</button>
+                            </form>
+                            <div className="social">
+                                <ul>
+                                    <li><a href="#"><i className="fa fa-facebook" /></a></li>
+                                    <li><a href="#"><i className="fa fa-twitter" /></a></li>
+                                    <li><a href="#"><i className="fa fa-google-plus" /></a></li>
+                                    <li><a href="#"><i className="fa fa-youtube" /></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer">
+                    <div className="container text-center">
+                        <div className="fnav">
+                            <p>Copyright © 2019 Designed by Chandler Paulk and Matt Pitner</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-                        )
+        )
     }
-                        }
-                        
+}
 export default Home;
