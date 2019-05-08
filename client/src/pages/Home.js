@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
@@ -184,6 +184,60 @@ class Home extends Component {
                             <h2>Blogs</h2>
 
                             <hr />
+<<<<<<< HEAD
+=======
+                            <p>Create a new blog post here!</p>
+                        </div>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    {this.state.blogs.length ? (
+                                        <List>
+                                            {this.state.blogs.map(blog => (
+                                                <ListItem key={blog._id}>
+                                                    {/* <Link to={"/blogs/" + blog._id}> */}
+                                                        <strong>
+                                                            {blog.title} by {blog.author}
+                                                        </strong>
+                                                    {/* </Link> */}
+                                                    <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
+                                                </ListItem>
+                                            ))}
+                                        </List>
+                                    ) : (
+                                            <h3>No Blog Posts</h3>
+                                        )}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="container">
+                            <form name="sentMessage" id="contactForm" noValidate>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="form-group">
+                                            <input type="text" id="name" className="form-control" placeholder="Title" required="required" />
+                                            <p className="help-block text-danger" />
+                                        </div>
+                                    </div>
+                                    <div className="col-md-12">
+                                        <div className="form-group">
+                                            <input type="email" id="email" className="form-control" placeholder="Author" required="required" />
+                                            <p className="help-block text-danger" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-12">
+                                    <div className="form-group">
+                                        <textarea name="message" id="message" className="form-control" rows={6} placeholder="Blog post goes here" required defaultValue={""} />
+                                        <p className="help-block text-danger" />
+                                    </div>
+                                    <div className="col-md-12">
+                                        <div id="success" />
+                                        <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!</button>
+                                    </div>
+                                </div>
+                            </form>
+>>>>>>> a8e5042454ca95eec1afb30feed9c183bd1bf92a
                         </div>
                         
                         {this.state.blogs.length ? (
