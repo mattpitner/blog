@@ -3,6 +3,9 @@ import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import { Link } from "react-router-dom";
 import DeleteBtn from "../components/DeleteBtn";
+import Jumbotron from "../components/Jumbotron";
+import { Col, Row, Container } from "../components/Grid";
+import { Input, TextArea, FormBtn } from "../components/Form";
 
 class Home extends Component {
     state = {
@@ -19,7 +22,7 @@ class Home extends Component {
     loadBlogs = () => {
         API.getBlogs()
             .then(res =>
-                this.setState({ books: res.data, title: "", author: "", post: "" })
+                this.setState({ blogs: res.data, title: "", author: "", post: "" })
             )
             .catch(err => console.log(err));
     };
@@ -175,123 +178,134 @@ class Home extends Component {
                     </div>
                 </div>
 
-                <div id="pricing" className="text-center">
+                <div id="about">
                     <div className="container">
-                        <div className="section-title center">
-                            <h2>New Post</h2>
-                            <hr />
-                            <p>Create a new blog post here!</p>
-                        </div>
+                        <div className="section-title text-center center">
+                            <h2>Blogs</h2>
 
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    {this.state.blogs.length ? (
-                                        <List>
-                                            {this.state.blogs.map(blog => (
-                                                <ListItem key={blog._id}>
-                                                    <Link to={"/blogs/" + blog._id}>
-                                                        <strong>
-                                                            {blog.title} by {blog.author}
-                                                        </strong>
-                                                    </Link>
-                                                    <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
-                                                </ListItem>
-                                            ))}
-                                        </List>
-                                    ) : (
-                                            <h3>No Blog Posts</h3>
-                                        )}
-                                </div>
-                            </div>
+                            <hr />
                         </div>
                         
-                        <div className="container">
-                            <form name="sentMessage" id="contactForm" noValidate>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <div className="form-group">
-                                            <input type="text" id="name" className="form-control" placeholder="Title" required="required" />
-                                            <p className="help-block text-danger" />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-12">
-                                        <div className="form-group">
-                                            <input type="email" id="email" className="form-control" placeholder="Author" required="required" />
-                                            <p className="help-block text-danger" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-12">
-                                    <div className="form-group">
-                                        <textarea name="message" id="message" className="form-control" rows={6} placeholder="Blog post goes here" required defaultValue={""} />
-                                        <p className="help-block text-danger" />
-                                    </div>
-                                    <div className="col-md-12">
-                                        <div id="success" />
-                                        <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        {this.state.blogs.length ? (
+              <List>
+                {this.state.blogs.map(book => (
+                  <ListItem key={blog._id}>
+                    <Link to={"/blogs/" + blog._id}>
+                      <strong>
+                        {blog.title} by {blog.author}
+                      </strong>
+                    </Link>
+                    <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+
+
                     </div>
                 </div>
-                {/* Contact Section */}
-                <div id="contact" className="text-center">
-                    <div className="container">
-                        <div className="section-title center">
-                            <h2 className="h2-secondary">Contact Us</h2>
-                            <hr />
-                            <p className="p-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
-                        </div>
-                        <div className="col-md-8 col-md-offset-2">
-                            <form name="sentMessage" id="contactForm" noValidate>
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <input type="text" id="name" className="form-control" placeholder="Name" required="required" />
-                                            <p className="help-block text-danger" />
+
+               
+                      
+                      
+                      
+                <div id="pricing" className="text-center">
+                                    <div className="container">
+                                        <div className="section-title center">
+                                            <h2>New Post</h2>
+                                            <hr />
+                                            <p>Create a new blog post here!</p>
                                         </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <input type="email" id="email" className="form-control" placeholder="Email" required="required" />
-                                            <p className="help-block text-danger" />
+
+
+                                        <div className="container">
+                                            <form name="sentMessage" id="contactForm" noValidate>
+                                                <div className="row">
+                                                    <div className="col-md-12">
+                                                        <div className="form-group">
+                                                            <input type="text" id="name" className="form-control" placeholder="Title" required="required" />
+                                                            <p className="help-block text-danger" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-12">
+                                                        <div className="form-group">
+                                                            <input type="email" id="email" className="form-control" placeholder="Author" required="required" />
+                                                            <p className="help-block text-danger" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-12">
+                                                    <div className="form-group">
+                                                        <textarea name="message" id="message" className="form-control" rows={6} placeholder="Blog post goes here" required defaultValue={""} />
+                                                        <p className="help-block text-danger" />
+                                                    </div>
+                                                    <div className="col-md-12">
+                                                        <div id="success" />
+                                                        <button onClick={this.handleFormSubmit} type="submit" className="btn btn-custom btn-lg">Post!</button>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="form-group">
-                                    <textarea name="message" id="message" className="form-control" rows={4} placeholder="Message" required defaultValue={""} />
-                                    <p className="help-block text-danger" />
+
+                                <div id="contact" className="text-center">
+                                    <div className="container">
+                                        <div className="section-title center">
+                                            <h2 className="h2-secondary">Contact Us</h2>
+                                            <hr />
+                                            <p className="p-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
+                                        </div>
+                                        <div className="col-md-8 col-md-offset-2">
+                                            <form name="sentMessage" id="contactForm" noValidate>
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <div className="form-group">
+                                                            <input type="text" id="name" className="form-control" placeholder="Name" required="required" />
+                                                            <p className="help-block text-danger" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <div className="form-group">
+                                                            <input type="email" id="email" className="form-control" placeholder="Email" required="required" />
+                                                            <p className="help-block text-danger" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="form-group">
+                                                    <textarea name="message" id="message" className="form-control" rows={4} placeholder="Message" required defaultValue={""} />
+                                                    <p className="help-block text-danger" />
+                                                </div>
+                                                <div id="success" />
+                                                <button type="submit" className="btn btn-custom btn-lg">Send Message</button>
+                                            </form>
+
+
+
+
+                                            <div className="social">
+                                                <ul>
+                                                    <li><a href="#"><i className="fa fa-facebook" /></a></li>
+                                                    <li><a href="#"><i className="fa fa-twitter" /></a></li>
+                                                    <li><a href="#"><i className="fa fa-google-plus" /></a></li>
+                                                    <li><a href="#"><i className="fa fa-youtube" /></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div id="success" />
-                                <button type="submit" className="btn btn-custom btn-lg">Send Message</button>
-                            </form>
-
-
-
-
-                            <div className="social">
-                                <ul>
-                                    <li><a href="#"><i className="fa fa-facebook" /></a></li>
-                                    <li><a href="#"><i className="fa fa-twitter" /></a></li>
-                                    <li><a href="#"><i className="fa fa-google-plus" /></a></li>
-                                    <li><a href="#"><i className="fa fa-youtube" /></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="footer">
-                    <div className="container text-center">
-                        <div className="fnav">
-                            <p>Copyright © 2019 Designed by Chandler Paulk</p>
-                        </div>
-                    </div>
-                </div>
+                                <div id="footer">
+                                    <div className="container text-center">
+                                        <div className="fnav">
+                                            <p>Copyright © 2019 Designed by Chandler Paulk</p>
+                                        </div>
+                                    </div>
+                                </div>
             </div>
-        )
+                        )
     }
-}
-
+                        }
+                        
 export default Home;
