@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DeleteBtn from "../components/DeleteBtn";
 
 class Home extends Component {
@@ -189,11 +189,11 @@ class Home extends Component {
                                         <List>
                                             {this.state.blogs.map(blog => (
                                                 <ListItem key={blog._id}>
-                                                    {/* <Link to={"/blogs/" + blog._id}> */}
+                                                    <Link to={"/blogs/" + blog._id}>
                                                         <strong>
                                                             {blog.title} by {blog.author}
                                                         </strong>
-                                                    {/* </Link> */}
+                                                    </Link>
                                                     <DeleteBtn onClick={() => this.deleteBlog(blog._id)} />
                                                 </ListItem>
                                             ))}
